@@ -20,12 +20,12 @@ window.renderStatistics = function (ctx, names, times) {
   var color;
   var you = 'Вы';
 
-  function drawRect(ctx, x, y, width, height, color) {
+  function drawRect(x, y, width) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, width, height);
   }
 
-  function drawText(ctx, text, x, y) {
+  function drawText(text, x, y) {
     ctx.fillStyle = 'black';
     ctx.fillText(text, x, y);
   }
@@ -39,8 +39,8 @@ window.renderStatistics = function (ctx, names, times) {
   for (var i = 0; i < names.length; i++) {
     height = Math.round(getPercent(times[i], maxTime, columnHeight));
     color = you !== names[i] ? 'rgba(0, 0, 255, ' + genOpacity() + ')' : 'rgba(255, 0, 0, 1)';
-    drawText(ctx, names[i], 140 + (i * wordSpace), 250);
-    drawRect(ctx, 140 + (i * wordSpace), 130 + (100 - height), columnWidth, height, color);
+    drawText(names[i], 140 + (i * wordSpace), 250);
+    drawRect(140 + (i * wordSpace), 130 + (100 - height), columnWidth, height, color);
 
   }
-}
+};

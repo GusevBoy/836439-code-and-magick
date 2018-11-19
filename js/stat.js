@@ -1,4 +1,6 @@
-window.renderStatistics = function(ctx, names, times) {
+'use strict';
+
+window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = 'black';
   ctx.fillRect(110, 20, 420, 270);
   ctx.fillStyle = 'white';
@@ -18,14 +20,6 @@ window.renderStatistics = function(ctx, names, times) {
   var color;
   var you = 'Вы';
 
-  for (var i = 0; i < names.length; i++) {
-    height = Math.round(getPercent(times[i], maxTime, columnHeight));
-    color = you !== names[i] ? 'rgba(0, 0, 255, ' + genOpacity() + ')' : 'rgba(255, 0, 0, 1)';
-    drawText(ctx, names[i], 140 + (i * wordSpace), 250);
-    drawRect(ctx, 140 + (i * wordSpace), 130 + (100 - height), columnWidth, height, color);
-
-  }
-
   function drawRect(ctx, x, y, width, height, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, width, height);
@@ -42,4 +36,11 @@ window.renderStatistics = function(ctx, names, times) {
     return value / max * colHeight;
   }
 
+  for (var i = 0; i < names.length; i++) {
+    height = Math.round(getPercent(times[i], maxTime, columnHeight));
+    color = you !== names[i] ? 'rgba(0, 0, 255, ' + genOpacity() + ')' : 'rgba(255, 0, 0, 1)';
+    drawText(ctx, names[i], 140 + (i * wordSpace), 250);
+    drawRect(ctx, 140 + (i * wordSpace), 130 + (100 - height), columnWidth, height, color);
+
+  }
 }

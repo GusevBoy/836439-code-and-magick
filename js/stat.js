@@ -1,12 +1,12 @@
 'use strict';
 /**
 *Данная функция рисует область на полотне.
-*@param ctx  канвас на котором рисуется игра.
-*@param x {number} расстояние по оси x
-*@param y {number} расстояние по оси y
-*@param width {number} ширина области
-*@param height {number} высота области
-*@param color {string} цвет области
+*@param {object} ctx  канвас на котором рисуется игра.
+*@param {number} x расстояние по оси x
+*@param {number} y расстояние по оси y
+*@param {number} width ширина области
+*@param {number} height высота области
+*@param {string} color цвет области
 */
 function drawRect(ctx, x, y, width, height, color) {
   ctx.fillStyle = color;
@@ -15,20 +15,19 @@ function drawRect(ctx, x, y, width, height, color) {
 
 /**
 *Данная функция рисует текст на полотне.
-*@param ctx  канвас на котором рисуется игра.
-*@param text {string}  текст, которые необходимо дабавить.
-*@param x {number} расстояние по оси x
-*@param y {number} расстояние по оси x
+*@param {object} ctx  канвас на котором рисуется игра.
+*@param {string} text текст, которые необходимо дабавить.
+*@param {number} x  расстояние по оси x
+*@param {number} y  расстояние по оси x
 */
-function drawText(ctx,text, x, y) {
+function drawText (ctx, text, x, y) {
   ctx.fillStyle = 'black';
   ctx.fillText(text, x, y);
 }
-
 /**
 *Определение процентного соотношения от максимального значения.
-*@param value {number} значение
-*@param max {number} максимальное значение
+*@param {number} value  значение
+*@param {number} max  максимальное значение
 */
 function getPercent(value, max) {
   return value / max;
@@ -36,9 +35,9 @@ function getPercent(value, max) {
 
 /**
 *Данная функция будет вызываться при выстреле в забор. Это обозначает, что пользователь прошел уровень.
-*@param ctx  канвас на котором рисуется игра.
-*@param names  массив, с именами игроков прошедших уровень
-*@param times  массив содержит время прохождения уровня
+*@param {object} ctx  канвас на котором рисуется игра.
+*@param {array} names  массив, с именами игроков прошедших уровень
+*@param {array} times  массив содержит время прохождения уровня
 */
 window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = 'black';
@@ -62,7 +61,6 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < names.length; i++) {
     height = Math.round(getPercent(times[i], maxTime) * columnHeight);
-    console.log('Time:'+times[i]+' '+ 'Height:' + height + ' '+  'Names:' + names[i])
     color = you !== names[i] ? 'rgba(0, 0, 255, ' + Math.random() + ')' : 'rgba(255, 0, 0, 1)';
     drawText(ctx, names[i], 140 + (i * wordSpace), 250);
     drawRect(ctx, 140 + (i * wordSpace), 130 + (100 - height), columnWidth, height, color);

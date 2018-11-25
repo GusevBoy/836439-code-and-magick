@@ -20,7 +20,7 @@ function drawRect(ctx, x, y, width, height, color) {
 *@param {number} x  расстояние по оси x
 *@param {number} y  расстояние по оси x
 */
-function drawText (ctx, text, x, y) {
+function drawText(ctx, text, x, y) {
   ctx.fillStyle = 'black';
   ctx.fillText(text, x, y);
 }
@@ -28,6 +28,7 @@ function drawText (ctx, text, x, y) {
 *Определение процентного соотношения от максимального значения.
 *@param {number} value  значение
 *@param {number} max  максимальное значение
+*@return {number} процентное соотношение
 */
 function getPercent(value, max) {
   return value / max;

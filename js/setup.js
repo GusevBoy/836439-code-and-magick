@@ -14,7 +14,7 @@ function randomInteger(min, max) {
   return rand;
 }
 
-  var creatingArrayHeroes = function (n) {
+function creatingArrayHeroes (n) {
   var heroesArray = [];
   var names = [
     'Иван',
@@ -58,7 +58,7 @@ function randomInteger(min, max) {
       coatColor: coatColors[randomInteger(0, coatColors.length - 1)],
       eyesColor: eyesColors[randomInteger(0, eyesColors.length - 1)],
     };
-  };
+  }
   return heroesArray;
 };
 
@@ -71,13 +71,13 @@ var addingSimilarHeroes = function (n) {
     var arrayHeroes = creatingArrayHeroes(n);
     var arrayHeroesItem = arrayHeroes[i];
     var hero = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-    var list = document.querySelector('.setup-similar-list')
+    var list = document.querySelector('.setup-similar-list');
     var coat = hero.querySelector('.wizard-coat');
     var eyes = hero.querySelector('.wizard-eyes');
     var name = hero.querySelector('.setup-similar-label');
     var element;
     eyes.setAttribute('style', 'fill:' + arrayHeroesItem.eyesColor);
-    hero.setAttribute('style', 'fill:' + arrayHeroesItem.coatColor);
+    coat.setAttribute('style', 'fill:' + arrayHeroesItem.coatColor);
     name.textContent = (arrayHeroesItem.name);
     element = hero.cloneNode(true);
     list.appendChild(element);

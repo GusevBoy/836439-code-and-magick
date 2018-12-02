@@ -14,7 +14,7 @@ function randomInteger(min, max) {
   return rand;
 }
 
-function creatingArrayHeroes (n) {
+function creatingArrayHeroes(n) {
   var heroesArray = [];
   var names = [
     'Иван',
@@ -82,7 +82,7 @@ var addingSimilarHeroes = function (n) {
     element = hero.cloneNode(true);
     list.appendChild(element);
   }
-};
+}
 
 settingsHero.classList.remove('hidden');
 setupSimilar.classList.remove('hidden');

@@ -60,7 +60,7 @@ function creatingArrayHeroes(n) {
     };
   }
   return heroesArray;
-};
+}
 
 /**
 *Данная функция добавляет аналогичных персонажей в блок setup-similar
@@ -82,7 +82,7 @@ var addingSimilarHeroes = function (n) {
     element = hero.cloneNode(true);
     list.appendChild(element);
   }
-}
+};
 
 settingsHero.classList.remove('hidden');
 setupSimilar.classList.remove('hidden');
